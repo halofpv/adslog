@@ -12,34 +12,38 @@ void merge(int a[], int left, int middle, int right)
     }
     for(j = 0; j < n2; j++)
     {
-        Right[j] = a[middle + 1 + j];
+        Right[j] = a[middle + j + 1];
     }
     i = 0;
     j = 0;
     k = left;
-
-    while (i < n1 && j < n2)
+    while(i < n1 && j < n2)
     {
         if(Left[i] <= Right[j])
         {
             a[k] = Left[i];
             i++;
+            k++;
         }
-        else {
+        else
+        {
             a[k] = Right[j];
             j++;
+            k++;
         }
-        k++;
+
     }
-    while (i < n1) {
+    while(i < n1)
+    {
         a[k] = Left[i];
+        k++;
         i++;
-        k++;
     }
-    while (j < n2) {
+    while(j < n2)
+    {
         a[k] = Right[j];
-        j++;
         k++;
+        j++;
     }
 }
 
